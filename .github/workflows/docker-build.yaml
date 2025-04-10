@@ -20,7 +20,7 @@ jobs:
             dockerfile: Dockerfile
             platform: linux/amd64
           - arch: arm64
-            dockerfile: dockerfile.aarch64
+            dockerfile: Dockerfile.aarch64
             platform: linux/arm64
     steps:
       - uses: actions/checkout@v4
