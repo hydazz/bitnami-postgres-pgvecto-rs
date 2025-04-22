@@ -1,7 +1,7 @@
-ARG PGVECTORS_TAG=pg14-v0.3.0-amd64
+ARG PGVECTORS_TAG=pg14-v0.3.0
 ARG BITNAMI_TAG=14.17.0-debian-12-r14
-FROM scratch as nothing
-FROM tensorchord/pgvecto-rs-binary:${PGVECTORS_TAG} as binary
+FROM scratch AS nothing
+FROM tensorchord/pgvecto-rs-binary:${PGVECTORS_TAG}-${TARGETARCH} AS binary
 
 FROM docker.io/bitnami/postgresql:${BITNAMI_TAG}
 COPY --from=binary /pgvecto-rs-binary-release.deb /tmp/vectors.deb
